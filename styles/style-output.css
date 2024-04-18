@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif;
+  font-family: -apple-system;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -2313,7 +2313,7 @@ html {
 }
 
 .font-sans {
-  font-family: ui-sans-serif;
+  font-family: -apple-system;
 }
 
 .text-2xl {
