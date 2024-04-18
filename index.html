@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/style-output.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body class="font-sans">
@@ -70,7 +71,7 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-12">
+    <div data-aos="fade-down" class="container mx-auto px-12">
         <h1 class="text-2xl font-semibold">About Me</h1>
         <p class="text-justify mt-2">An Information and Communication Technology (ICT) undergraduate with
             a
@@ -85,7 +86,7 @@
             reality together 🔥</p>
     </div>
 
-    <div class="container mx-auto px-12 mt-8">
+    <div data-aos="fade-up" class="container mx-auto px-12 mt-8">
         <h1 class="text-2xl font-semibold">Work Experience</h1>
         <ul class="timeline timeline-vertical timeline-compact mt-2">
             <li>
@@ -141,7 +142,7 @@
         </ul>
     </div>
 
-    <div class="container mx-auto px-12 mt-8">
+    <div data-aos="zoom-in-up" class="container mx-auto px-12 mt-8">
         <h1 class="text-2xl font-semibold">Development Tools</h1>
         <div class="flex flex-col gap-2">
             <div class="card card-bordered border-neutral mt-2">
@@ -171,7 +172,7 @@
         </div>
     </div>
 
-    <div class="container mx-auto px-12 mt-8">
+    <div data-aos="zoom-in-down" class="container mx-auto px-12 mt-8">
         <h1 class="text-2xl font-semibold">Projects</h1>
         <div class="card card-bordered card-compact border-neutral hover:border-primary hover:shadow-md mt-2">
             <div class="card-body">
@@ -351,4 +352,11 @@
         </aside>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 650,
+        });
+    </script>
 </body>
