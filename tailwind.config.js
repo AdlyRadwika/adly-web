@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      'sans': ['-apple-system'],
+      'sans': ['SF Pro Display'],
     }
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],

@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: -apple-system;
+  font-family: SF Pro Display;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -708,6 +708,96 @@ html {
   --bc: 74.6477% 0.0216 264.435964;
 }
 
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 100;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Ultralight.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 200;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Thin.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 300;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Light.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Medium.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 600;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 700;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Bold.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 800;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Black.ttf");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+
+  font-style: normal;
+
+  font-weight: 900;
+
+  src: url("https://raw.githubusercontent.com/blaisck/sfwin/master/SFPro/TrueType/SFProDisplay-Heavy.ttf");
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -815,8 +905,6 @@ html {
   --tw-contain-paint:  ;
   --tw-contain-style:  ;
 }
-
-/* Preflight will be injected here */
 
 .container {
   width: 100%;
@@ -2313,7 +2401,7 @@ html {
 }
 
 .font-sans {
-  font-family: -apple-system;
+  font-family: SF Pro Display;
 }
 
 .text-2xl {
