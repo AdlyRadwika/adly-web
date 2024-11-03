@@ -13,7 +13,7 @@ class WorkExperience extends HTMLElement {
                     "description": [
                         "Migrated 1 internal application from Android only to both Android and iOS with Flutter.",
                         "Designed and developed the app from scratch and brought a new interactive UI/UX.",
-                        "Maintained the application that has been published in the App Store and Play Store with over 3000 users."
+                        "Maintained the application published in the App Store and Play Store with over 10k users."
                     ]
                 },
                 {
