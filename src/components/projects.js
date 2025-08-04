@@ -9,7 +9,8 @@ class Projects extends HTMLElement {
         {
           "title": "KAIS Apps",
           "description": "This internal application, which I developed and migrated for PT. Reska Multi Usaha, improves the accessibility for iOS user.",
-          "tools": ["Flutter", "Clean Architecture", "Provider", "Firebase", "GitLab CI"]
+          "tools": ["Flutter", "Clean Architecture", "Provider", "Firebase", "GitLab CI"],
+          "playStore_link": "https://play.google.com/store/apps/details?id=id.co.reska.employee.v2&hl=id",
         },
         {
           "title": "eLearning Mobile Apps",
