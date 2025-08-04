@@ -7,7 +7,7 @@ class AboutMe extends HTMLElement {
         const jsonData = {
             "title": "About Me",
             "paragraphs": [
-                "An Information and Communication Technology (ICT) undergraduate with a burning passion for crafting incredible mobile applications. Flutter currently serves as my trusty weapon of choice, allowing me to build engaging and user-friendly experiences. However, my thirst for knowledge doesn't stop there! I'm actively honing my skills in Kotlin and Swift to evolve into a multi-platform mobile development master ⚔️",
+                "I'm an Information and Communication Technology (ICT) graduate with a passion for building innovative mobile applications. While I have extensive experience with Flutter, I'm driven to master multi-platform development. I'm actively expanding my skill set to include Kotlin and Swift, and I'm always eager to learn new technologies and create exceptional user experiences ⚔️",
                 "Always energized by a good challenge and a collaborative effort, I'm eager to join forces and build groundbreaking apps that push the boundaries of possibility. Let's transform innovative ideas into reality together 🔥"
             ]
         };
