@@ -11,38 +11,44 @@ class Projects extends HTMLElement {
           "description": "This internal application, which I developed and migrated for PT. Reska Multi Usaha, improves the accessibility for iOS user.",
           "tools": ["Flutter", "Clean Architecture", "Provider", "Firebase", "GitLab CI"],
           "playStore_link": "https://play.google.com/store/apps/details?id=id.co.reska.employee.v2&hl=id",
+          "image": "https://placehold.co/600x400?text=KAIS+Apps"
         },
         {
           "title": "eLearning Mobile Apps",
           "description": "I built a collaborative learning app (like Google Classroom) with facial recognition for my final project.",
           "tools": ["Flutter", "Clean Architecture", "BLOC", "Firebase", "Tensorflow Lite"],
-          "github_link": "https://github.com/AdlyRadwika/E-Learning-Apps"
+          "github_link": "https://github.com/AdlyRadwika/E-Learning-Apps",
+          "image": "https://placehold.co/600x400?text=eLearning+Mobile+Apps"
         },
         {
           "title": "SMAN 4 Medan Mobile Apps",
           "description": "During my time at PT. Inovatif Tujuh Delapan, I developed a comprehensive client application featuring functionalities like forums, PPOB (bill payment), and more.",
           "tools": ["Flutter", "Clean Architecture", "Provider", "Firebase"],
           "playStore_link": "https://play.google.com/store/apps/details?id=com.inovatif78.sma_4_medan",
-          "appStore_link": "https://apps.apple.com/id/app/ikal-sma-4-medan/id6470934679"
+          "appStore_link": "https://apps.apple.com/id/app/ikal-sma-4-medan/id6470934679",
+          "image": "https://placehold.co/600x400?text=SMAN+4+Medan"
         },
         {
           "title": "Komudi",
           "description": "Another project I developed at PT. Inovatif Tujuh Delapan was a SaaS platform catering to communities.",
           "tools": ["Flutter", "Clean Architecture", "Provider", "Firebase", "WebSocket"],
           "playStore_link": "https://play.google.com/store/apps/details?id=com.inovatif78.superapps",
-          "appStore_link": "https://apps.apple.com/id/app/komudi/id6477152837"
+          "appStore_link": "https://apps.apple.com/id/app/komudi/id6477152837",
+          "image": "https://placehold.co/600x400?text=Komudi"
         },
         {
           "title": "Hawan",
           "description": "This is a city-based weather forecasting website.",
           "tools": ["HTML", "CSS", "JavaScript", "Bootstrap", "VisualCrossing's API"],
-          "websiteLink": "https://adlyradwika.github.io/Hawan/"
+          "websiteLink": "https://adlyradwika.github.io/Hawan/",
+          "image": "https://placehold.co/600x400?text=Hawan"
         },
         {
           "title": "Diresto",
           "description": "This app serves as my submission for Dicoding's course. Users can browse a sample restaurant database, showcasing the functionalities learned during the course.",
           "tools": ["Flutter", "Provider", "SQLite"],
-          "github_link": "https://github.com/AdlyRadwika/diresto"
+          "github_link": "https://github.com/AdlyRadwika/diresto",
+          "image": "https://placehold.co/600x400?text=Diresto"
         }
       ]
     };
@@ -50,7 +56,7 @@ class Projects extends HTMLElement {
     this.innerHTML = `
     <div data-aos="zoom-in-down" class="container mx-auto px-12 mt-8">
         <h1 class="text-2xl font-semibold">Projects</h1>
-        <div class="card card-bordered card-compact border-neutral hover:border-primary hover:shadow-md mt-2">
+        <div class="project-card card card-bordered card-compact border-neutral hover:border-primary hover:shadow-md mt-2 cursor-pointer" data-title="This Website" data-description="The place where you'll find my portfolio, which I keep up-to-date." data-image="https://placehold.co/600x400?text=This+Website" data-tools="[&quot;HTML&quot;,&quot;CSS&quot;,&quot;JavaScript&quot;,&quot;Tailwind&quot;,&quot;GitHub Actions&quot;]">
             <div class="card-body">
                 <h2 class="card-title">This Website</h2>
                 <p class="text-start">The place where you'll find my portfolio, which I keep up-to-date.</p>
@@ -65,7 +71,15 @@ class Projects extends HTMLElement {
         </div>
         <div id="projectsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         ${jsonData.projects.map(project => `
-        <div class="card card-bordered card-compact border-neutral hover:border-primary hover:shadow-md mt-2">
+        <div class="project-card card card-bordered card-compact border-neutral hover:border-primary hover:shadow-md mt-2 cursor-pointer"
+             data-title="${project.title}"
+             data-description="${project.description}"
+             data-image="${project.image || ''}"
+             data-tools="${JSON.stringify(project.tools || []).replace(/"/g, '&quot;')}"
+             data-github="${project.github_link || ''}"
+             data-playstore="${project.playStore_link || ''}"
+             data-appstore="${project.appStore_link || ''}"
+             data-website="${project.websiteLink || ''}">
           <div class="card-body">
             <h2 class="card-title">${project.title}</h2>
             <p class="text-start">${project.description}</p>
@@ -83,7 +97,80 @@ class Projects extends HTMLElement {
         `).join('')}
         </div>
       </div>
+
+      <dialog id="project-modal" class="rounded-lg shadow-xl bg-base-100 text-base-content backdrop:bg-black/50 w-[90%] max-w-3xl p-0">
+        <div class="p-6">
+          <h2 id="modal-title" class="text-2xl font-bold mb-2"></h2>
+          <img id="modal-image" src="" alt="Project preview" class="w-full h-64 object-cover rounded-lg mb-4 hidden">
+          <div id="modal-tools" class="flex flex-wrap gap-2 mb-4 hidden"></div>
+          <p id="modal-description" class="text-start mb-6"></p>
+          <div id="modal-actions" class="flex flex-wrap justify-start gap-2 mb-6 hidden"></div>
+          <div class="flex justify-end">
+            <button id="modal-close" class="btn btn-primary">Close</button>
+          </div>
+        </div>
+      </dialog>
       `;
+
+    const modal = this.querySelector('#project-modal');
+    const modalTitle = this.querySelector('#modal-title');
+    const modalDescription = this.querySelector('#modal-description');
+    const modalImage = this.querySelector('#modal-image');
+    const modalTools = this.querySelector('#modal-tools');
+    const modalActions = this.querySelector('#modal-actions');
+    const closeBtn = this.querySelector('#modal-close');
+
+    closeBtn.addEventListener('click', () => modal.close());
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.close();
+    });
+
+    this.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button')) return;
+
+        modalTitle.textContent = card.dataset.title;
+        modalDescription.textContent = card.dataset.description;
+
+        if (card.dataset.image) {
+          modalImage.src = card.dataset.image;
+          modalImage.classList.remove('hidden');
+        } else {
+          modalImage.classList.add('hidden');
+        }
+
+        const tools = JSON.parse(card.dataset.tools || '[]');
+        if (tools.length) {
+          modalTools.innerHTML = tools.map(tool => `<div class="badge badge-outline">${tool}</div>`).join('');
+          modalTools.classList.remove('hidden');
+        } else {
+          modalTools.classList.add('hidden');
+        }
+
+        const actions = [
+          { key: 'github', label: 'GitHub', icon: 'github' },
+          { key: 'playstore', label: 'Play Store', icon: 'play' },
+          { key: 'appstore', label: 'App Store', icon: 'apple' },
+          { key: 'website', label: 'Website', icon: 'link' }
+        ].filter(action => card.dataset[action.key]);
+
+        if (actions.length) {
+          modalActions.innerHTML = actions.map(action => `
+            <a href="${card.dataset[action.key]}" target="_blank" class="btn btn-sm btn-outline gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 256 256" class="fill-current">
+                <path d="${getSvgPath(action.icon)}"/>
+              </svg>
+              ${action.label}
+            </a>
+          `).join('');
+          modalActions.classList.remove('hidden');
+        } else {
+          modalActions.classList.add('hidden');
+        }
+
+        modal.showModal();
+      });
+    });
   }
 }
 
