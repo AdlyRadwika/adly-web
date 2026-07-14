@@ -102,9 +102,9 @@ class Projects extends HTMLElement {
         <div class="p-6">
           <h2 id="modal-title" class="text-2xl font-bold mb-2"></h2>
           <img id="modal-image" src="" alt="Project preview" class="w-full h-64 object-cover rounded-lg mb-4 hidden">
-          <div id="modal-tools" class="flex flex-wrap gap-2 mb-4 hidden"></div>
+          <div id="modal-tools" class="flex flex-wrap gap-2 mb-4"></div>
           <p id="modal-description" class="text-start mb-6"></p>
-          <div id="modal-actions" class="flex flex-wrap justify-start gap-2 mb-6 hidden"></div>
+          <div id="modal-actions" class="flex flex-wrap justify-start gap-2 mb-6"></div>
           <div class="flex justify-end">
             <button id="modal-close" class="btn btn-primary">Close</button>
           </div>
