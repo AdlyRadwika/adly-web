@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<html data-theme="light">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -35,9 +34,13 @@
     </header>
 
 
-    <div id="app" class="font-sans">
-        <!-- Content will be dynamically loaded here -->
-    </div>
+    <main class="font-sans">
+        <introduction-component></introduction-component>
+        <about-me-component></about-me-component>
+        <work-experience-component></work-experience-component>
+        <development-tools-component></development-tools-component>
+        <projects-component></projects-component>
+    </main>
 
     <footer data-aos="fade-down" class="footer footer-center p-4 text-base-content">
         <aside>
@@ -45,7 +48,6 @@
         </aside>
     </footer>
 
-    <script src="src/utils/load-content.js"></script>
     <script src="src/components/introduction.js"></script>
     <script src="src/components/about-me.js"></script>
     <script src="src/components/work-experience.js"></script>
